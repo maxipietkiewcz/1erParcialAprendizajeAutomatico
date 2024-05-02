@@ -1,0 +1,52 @@
+Tema 1
+
+1 - ¿Un modelo contiene todos los datos posibles existentes en el universo conocido para su entrenamiento?.
+
+2 - Explique lo que permite hacer la función tf.tidy() y tf.dispose().
+
+3 - ¿Cuál es la diferencia entre el aprendizaje supervisado y el aprendizaje no supervisado?, 
+    cuando no tenemos datos etiquetados de un problema en particular donde queremos implementar 
+	aprendizaje automático, que tipo de aprendizaje se recomienda utilizar ?.
+
+4 – Explique la diferencia de Funcion Sincrona y Ascincrona 
+
+
+5 - Corrija el sistema Adjunto 	
+ 
+6 - Realice un sistema que entrene 525 épocas y que prediga el valor de Y para un 
+    valor x = 50 para la formula Y = 2X + 5 , ingresando para el entrenamiento 15 valores de pruebas 
+	comenzando por -4,  mostrando en pantalla el valor predicho de Y. Grafique la función de perdida.
+
+
+Respuestas 
+
+
+1 - Un modelo se entrena con conjuntos de datos finitos que representan una muestra de los datos disponibles en 
+    el universo. Aunque aprende de esta muestra limitada, puede generalizar patrones y relaciones para hacer 
+    predicciones sobre datos nuevos, siempre y cuando estos sean similares en naturaleza a los datos de 
+    entrenamiento. Sin embargo, el modelo no contiene información sobre todos los datos posibles del universo, 
+    sino que su capacidad de predicción se basa en la información aprendida durante el entrenamiento.
+
+2 - La función tf.tidy() y tf.dispose() son funciones de TensorFlow utilizadas para administrar la memoria y los 
+    recursos durante la ejecución de operaciones.
+
+    - tf.tidy() se utiliza para limpiar los recursos no utilizados después de ejecutar un bloque de código, lo que 
+      ayuda a evitar fugas de memoria. 
+    
+    - tf.dispose() se utiliza para liberar explícitamente los recursos asociados con tensores o operaciones de 
+      TensorFlow.
+
+3 - La diferencia fundamental entre el aprendizaje supervisado y el aprendizaje no supervisado radica en la 
+    naturaleza de los datos de entrenamiento. En el aprendizaje supervisado, los datos de entrenamiento están 
+    etiquetados, lo que significa que cada ejemplo de entrenamiento tiene una etiqueta que indica la respuesta 
+    correcta. En el aprendizaje no supervisado, los datos de entrenamiento no están etiquetados y el algoritmo 
+    debe encontrar patrones o estructuras en los datos por sí mismo. Cuando no tenemos datos etiquetados para un
+    problema en particular, se recomienda utilizar el aprendizaje no supervisado, ya que el aprendizaje 
+    supervisado requiere etiquetas para entrenar de manera efectiva el modelo.
+
+4 - Una función síncrona es aquella en la que cada tarea espera a que la tarea anterior 
+    se complete antes de comenzar. Por otro lado, una función asíncrona es aquella en la que las tareas pueden 
+    comenzar y completarse independientemente de otras tareas. Las funciones síncronas bloquean el hilo de 
+    ejecución hasta que se complete la tarea, mientras que las funciones asíncronas permiten que el hilo de 
+    ejecución continúe con otras tareas mientras espera que una tarea se complete en segundo plano.
+

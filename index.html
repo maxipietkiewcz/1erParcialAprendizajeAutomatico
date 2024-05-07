@@ -2,23 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+
     <title>Suma de matrices</title>
   </head>
   <body>
     <h1>Suma de matrices</h1>
+
     <form id="matrixForm">
+      <!-- Formulario para ingresar las matrices -->
       <label for="filas1">Filas de la matriz 1:</label>
       <input type="number" id="filas1" name="filas1" /><br />
+      <!-- Input para las filas de la matriz 1 -->
       <label for="columnas1">Columnas de la matriz 1:</label>
       <input type="number" id="columnas1" name="columnas1" /><br />
+      <!-- Input para las columnas de la matriz 1 -->
       <div id="matrix1"></div>
-      <br />
+      <!-- Div para mostrar los inputs de la matriz 1 -->
 
       <label for="filas2">Filas de la matriz 2:</label>
       <input type="number" id="filas2" name="filas2" /><br />
+      <!-- Input para las filas de la matriz 2 -->
       <label for="columnas2">Columnas de la matriz 2:</label>
       <input type="number" id="columnas2" name="columnas2" /><br />
+      <!-- Input para las columnas de la matriz 2 -->
       <div id="matrix2"></div>
+      <!-- Div para mostrar los inputs de la matriz 2 -->
       <br />
 
       <input
@@ -27,11 +35,15 @@
         onclick="generarMatrices()"
       />
       <input type="button" value="Sumar matrices" onclick="enviarMatrices()" />
+      <!-- Botón para sumar las matrices -->
     </form>
 
     <div id="result"></div>
+    <!-- Div para mostrar el resultado de la suma de matrices -->
 
     <script>
+      <!-- Inicia el bloque de script de JavaScript -->
+      // Función para crear inputs de una matriz dada su cantidad de filas y columnas
       function crearInputs(idDiv, filas, columnas) {
         let div = document.getElementById(idDiv);
         div.innerHTML = "";
@@ -42,7 +54,7 @@
           for (let j = 0; j < columnas; j++) {
             let input = document.createElement("input");
             input.type = "number";
-            input.name = `${idDiv}[${i}][${j}]`; // Modificado
+            input.name = `${idDiv}[${i}][${j}]`; // Nombre del input para identificar su posición en la matriz
             fila.appendChild(input);
           }
 
@@ -50,6 +62,7 @@
         }
       }
 
+      // Función para generar los inputs de las matrices
       function generarMatrices() {
         let filas1 = parseInt(document.getElementById("filas1").value);
         let columnas1 = parseInt(document.getElementById("columnas1").value);
@@ -62,14 +75,17 @@
         crearInputs("matrix2", filas2, columnas2);
       }
 
+      // Función para enviar las matrices al servidor y mostrar el resultado
       function enviarMatrices() {
         let matrix1 = [];
         let matrix2 = [];
 
+        // Obtener los valores de la matriz 1
         document.querySelectorAll("#matrix1 input").forEach((input) => {
           matrix1.push(parseInt(input.value));
         });
 
+        // Obtener los valores de la matriz 2
         document.querySelectorAll("#matrix2 input").forEach((input) => {
           matrix2.push(parseInt(input.value));
         });
@@ -86,11 +102,13 @@
           parseInt(document.getElementById("columnas2").value)
         );
 
+        // Preparar los datos para enviar al servidor
         const data = {
           matrix1: matrix1,
           matrix2: matrix2,
         };
 
+        // Enviar los datos al servidor usando fetch
         fetch("http://localhost:5000/sumar_matrices", {
           method: "POST",
           headers: {
@@ -107,6 +125,7 @@
           });
       }
 
+      // Función para mostrar el resultado de la suma de matrices en la página
       function mostrarResultado(resultMatrix) {
         let resultDiv = document.getElementById("result");
         resultDiv.innerHTML = "<h2>Resultado:</h2>";
@@ -133,5 +152,6 @@
         return matrix;
       }
     </script>
+    <!-- Termina el bloque de script de JavaScript -->
   </body>
 </html>
